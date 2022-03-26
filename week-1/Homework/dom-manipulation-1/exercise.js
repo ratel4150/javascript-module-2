@@ -37,12 +37,11 @@ Task 2
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
 
-let alertButton=document.querySelector('#alertBtn')
-alertButton.addEventListener("click",alertSomething)
+let alertButton = document.querySelector("#alertBtn");
+alertButton.addEventListener("click", alertSomething);
 
 function alertSomething() {
-    alert("Thanks for visiting Bikes for Refugees!")
-    
+  alert("Thanks for visiting Bikes for Refugees!");
 }
 
 /*
@@ -51,7 +50,7 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
-let changeColorPage=document.querySelector('#bgrChangeBtn')
+/* let changeColorPage=document.querySelector('#bgrChangeBtn')
 changeColorPage.addEventListener("click",changeColor)
 function changeColor() {
  let body=document.querySelector('body')
@@ -64,18 +63,18 @@ function changeColor() {
  }
     
     
-}
+} */
 /*
 Task 4
 ======
 
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
-let addTextBtn=document.querySelector("#addTextBtn")
+/* let addTextBtn=document.querySelector("#addTextBtn")
 addTextBtn.addEventListener("click" ,addText)
 
 function addText() {
-    /* .article */
+    
     
     let paragraph = document.createElement("p");
     let article=document.querySelector(".article") 
@@ -83,7 +82,7 @@ function addText() {
     article.insertBefore(paragraph, paragraphArticle);
     paragraph.innerText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, officia!"
     paragraph.style.color="red"
-}
+} */
 
 /*
 Task 5
@@ -92,6 +91,16 @@ Task 5
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
 
+let largerLinksBtn = document.querySelector("#largerLinksBtn");
+largerLinksBtn.addEventListener("click", largerLinks);
+
+function largerLinks() {
+  let bigLinks = document
+    .querySelectorAll("a")
+    .forEach((a) => (a.style.fontSize = "60px"));
+
+  console.log(bigLinks);
+}
 /*
 Task 6
 ======
@@ -100,6 +109,28 @@ Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
+let cliCount = 0;
+let addTextBtn6 = document.querySelector("#addTextBtn");
+addTextBtn6.addEventListener("click", addParagraphAndRemove);
+
+function addParagraphAndRemove(params) {
+  cliCount += 1;
+  if (cliCount === 1) {
+    let paragraph = document.createElement("p");
+    let article = document.querySelector(".article");
+    let paragraphArticle = document.querySelector(".article-lead"); // we're just creating an element, it is not visible yet
+    article.insertBefore(paragraph, paragraphArticle);
+    paragraph.innerText =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, officia!";
+    paragraph.style.color = "red";
+  } else if (cliCount != 1) {
+    cliCount = 0;
+    let removeParagraph = document.querySelector(".article").querySelector("p");
+    removeParagraph.remove();
+  }
+  {
+  }
+}
 
 /*
 Task 7
@@ -109,3 +140,65 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
+let clickCount1=0
+let changeColorPage1 = document.querySelector("#bgrChangeBtn");
+changeColorPage1.addEventListener("click", changeColor);
+
+let colors = ["red", "blue", "pink", "green", "yellow"];
+
+function changeColor() {
+  let red = colors.filter(function (element) {
+    let z = element === "red";
+    return z;
+  });
+  let blue = colors.filter(function (element) {
+    let z = element === "blue";
+    return z;
+  });
+  let pink = colors.filter(function (element) {
+    let z = element === "pink";
+    return z;
+  });
+  let green = colors.filter(function (element) {
+    let z = element === "green";
+    return z;
+  });
+  let yellow = colors.filter(function (element) {
+    let z = element === "yellow";
+    return z;
+  });
+
+  console.log(red);
+  let body = document.querySelector("body");
+  clickCount1+=1
+  if (clickCount1 === 1) {
+      body.style.backgroundColor=red
+      
+      console.log(clickCount1);
+  }if (clickCount1 === 2) {
+    body.style.backgroundColor=blue
+    
+    console.log(clickCount1);
+      
+  }if (clickCount1 === 3) {
+    body.style.backgroundColor=pink
+    
+    console.log(clickCount1);
+      
+  }if (clickCount1 === 4) {
+    body.style.backgroundColor=green
+    
+    console.log(clickCount1);
+      
+  }if (clickCount1 === 5) {
+    body.style.backgroundColor=yellow
+    
+    clickCount1=0
+      
+  }
+  
+  
+  
+  
+}
+
