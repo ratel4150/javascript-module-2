@@ -13,6 +13,7 @@ body {
 
 .site-footer {
 	margin-top: 4em;
+	
 }
 
 .site-footer p {
@@ -150,6 +151,8 @@ body {
 #greenBtn {
 	background: #87ca8a
 }
+
+
 
 @media screen and (min-width: 992px) {
 
