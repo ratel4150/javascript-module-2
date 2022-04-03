@@ -1,29 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CodeYourFuture - Callbacks</title>
+    <meta name="description" content="Callbacks" />
+    <meta name="author" content="CodeYourFuture" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 30px;
+      }
+      form {
+        padding: 2%;
+        border: 1px solid;
+        height: 50%;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      form *{
+        display: block;
+        margin: 5px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>CodeYourFuture - Callbacks</title>
-  <meta name="description" content="Callbacks">
-  <meta name="author" content="CodeYourFuture">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      padding: 30px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="main">
-    <div class="jumbotron">
-      <h1>My movies</h1>
-      <div id="all-movies">
-        <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
+  <body>
+    <div id="main">
+      <div class="jumbotron">
+        <h1>My movies</h1>
+        <div id="all-movies">
+          <p class="alert alert-info">
+            Number of movies: <span id="movies-number"></span>
+          </p>
+        </div>
       </div>
-    </div>
-    <script src="exercise.js"></script>
-</body>
 
+      <form action="">
+        <label for="">Title:</label>
+        <input type="text" name="" id="" />
+        <label for="">Director:</label
+        ><input type="text" name="" id="" />
+        <label for="">Type</label
+        ><input type="text" name="" id="" />
+        <label for="">Have Watched</label
+        ><input type="text" name="" id="" />
+        <input id="button" type="submit" value="Enviar">
+      </form>
+    </div>
+
+    <script src="exercise.js"></script>
+  </body>
 </html>
