@@ -13,7 +13,7 @@ function prueba(){
       //unidades menores de 10
       timeRemaining.textContent = "Time Remaining: 00:0" + alarmSet;
     } else if (alarmSet < 60) {
-      //decenas menosres de 60
+      //decenas menores de 60
       timeRemaining.textContent = "Time Remaining: 00:" + alarmSet;
     } else if (alarmSet >= 60) {
       //decenas myores o igual a 60
