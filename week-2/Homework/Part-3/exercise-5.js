@@ -7,11 +7,7 @@ and for each object, `console.log()` out the sentence:
 Here is the array:
 
 */
-writers.forEach(writer => {
-  for (let key in writer) {
-      console.log(`${key}: ${writer[key]}`);
-  }
-});
+
 
 
 var writers = [
@@ -20,32 +16,53 @@ var writers = [
     lastName: "Woolf",
     occupation: "writer",
     age: 59,
-    alive: false
+    alive: false,
+    setIntroduction:function(){
+      return "Hi, my name is "+this.firstName+" "+this.lastName+". I am "+this.age+" years old, and work as a "+this.occupation+"."
+
+    }
   },
   {
     firstName: "Zadie",
     lastName: "Smith",
     occupation: "writer",
     age: 41,
-    alive: true
+    alive: true,
+    setIntroduction:function(){
+      return "Hi, my name is "+this.firstName+" "+this.lastName+". I am "+this.age+" years old, and work as a "+this.occupation+"."
+
+    }
   },
   {
     firstName: "Jane",
     lastName: "Austen",
     occupation: "writer",
     age: 41,
-    alive: false
+    alive: false,
+    setIntroduction:function(){
+      return "Hi, my name is "+this.firstName+" "+this.lastName+". I am "+this.age+" years old, and work as a "+this.occupation+"."
+
+    }
   },
   {
     firstName: "bell",
     lastName: "hooks",
     occupation: "writer",
     age: 64,
-    alive: true
+    alive: true,
+    setIntroduction:function(){
+      return "Hi, my name is "+this.firstName+" "+this.lastName+". I am "+this.age+" years old, and work as a "+this.occupation+"."
+
+    }
   },
 ];
+writers.forEach(writer=>{
+  console.log(writer.setIntroduction())
+  
+})
 
-writers.forEach(writer => {
+/* writers.forEach(writer => {
+
  
   for (let key in writer) {
 
@@ -82,7 +99,7 @@ writers.forEach(writer => {
       
        }
 }
-});
+}); */
 
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
