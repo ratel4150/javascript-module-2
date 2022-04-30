@@ -60,12 +60,33 @@ let restaurant1 = {
     restaurants: restaurants,
     findAvailableRestaurants: function (numberOfPeople) {
       // Complete here
+      let setRestaurantsAvailableByName=restaurants.filter((restaurant)=>{
+        return (restaurant.totalSeats-restaurant.numberOfCustomers)>=numberOfPeople
+         
+       }).map((restaurant)=>{
+         return restaurant.name
+       })
+
+       return setRestaurantsAvailableByName.toString()
     },
     findRestaurantServingDish: function (dishName) {
       // Complete here
+      let setRestaurantsServingDish=restaurants.filter((restaurant)=>{
+        return restaurant.menu.includes(dishName)
+         
+       }).map((restaurant)=>{
+         return restaurant.name
+       })
+       return setRestaurantsServingDish.toString()
     },
     countNumberOfRestaurantsInArea: function (area) {
       // Complete here
+      let setNumberOfRestaurantsInArea=restaurants.filter((restaurant)=>{
+        return restaurant.address.area===area
+         
+       })
+       
+       return setNumberOfRestaurantsInArea.length
     },
   };
   
