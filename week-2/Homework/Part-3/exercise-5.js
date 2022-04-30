@@ -6,7 +6,13 @@ and for each object, `console.log()` out the sentence:
 
 Here is the array:
 
-*/ 
+*/
+writers.forEach(writer => {
+  for (let key in writer) {
+      console.log(`${key}: ${writer[key]}`);
+  }
+});
+
 
 var writers = [
   {
@@ -38,6 +44,45 @@ var writers = [
     alive: true
   },
 ];
+
+writers.forEach(writer => {
+ 
+  for (let key in writer) {
+
+      if(key==="firstName"){
+        console.log("Hi my name is "+writer[key])
+        
+         }
+  }
+  for (let key in writer) {
+
+      if(key==="lastName"){
+        console.log(writer[key])
+        
+         }
+  }
+   for (let key in writer) {
+
+      if(key==="age"){
+        console.log("I am "+ writer[key] +" years old,")
+        
+         }
+  }
+   for (let key in writer) {
+
+      if(key==="occupation"){
+        console.log("and work as a "+ writer[key] )
+        
+         }
+  }
+  for (let key in writer) {
+
+    if(key==="alive"){
+      console.log( writer[key]+" the writers that are alive" )
+      
+       }
+}
+});
 
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
