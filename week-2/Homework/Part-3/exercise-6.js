@@ -59,6 +59,10 @@ var mentors = [
       addSkill:function(skill){
         this.skills.push(skill)
         
+      },
+      addStudentLikes:function(){
+        this.studentLikes+=1
+
       }
   },
   {
@@ -75,6 +79,11 @@ var mentors = [
       },
       addSkill:function(skill){
         this.skills.push(skill)
+        
+      },
+      addStudentLikes:function(){
+        this.studentLikes+=1
+        
         
       }
   },
@@ -93,6 +102,11 @@ var mentors = [
       addSkill:function(skill){
         this.skills.push(skill)
         
+      },
+      addStudentLikes:function(){
+        this.studentLikes+=1
+        
+        
       }
   },  
   {
@@ -109,6 +123,11 @@ var mentors = [
       },
       addSkill:function(skill){
         this.skills.push(skill)
+        
+      },
+      addStudentLikes:function(){
+        this.studentLikes+=1
+        
         
       }
   },
@@ -184,7 +203,14 @@ return r
 
 }
 
-/* 7 */
+/* 8*/
+function addAllStudentsLikes(){
+  let a=mentors.forEach((mentor)=>{
+    mentor.addStudentLikes()
+  })
+  return a
+  }
+
 
 
 
