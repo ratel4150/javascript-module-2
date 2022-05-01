@@ -55,6 +55,10 @@ var mentors = [
         company: "Google",
         position: "Senior developer",
         city: "Barcelona"
+      },
+      addSkill:function(skill){
+        this.skills.push(skill)
+        
       }
   },
   {
@@ -68,6 +72,10 @@ var mentors = [
         company: "FC Barcelona",
         position: "Player",
         city: "Barcelona"
+      },
+      addSkill:function(skill){
+        this.skills.push(skill)
+        
       }
   },
   {
@@ -81,6 +89,10 @@ var mentors = [
         company: "Facebook",
         position: "Software Manager",
         city: "Chicago"
+      },
+      addSkill:function(skill){
+        this.skills.push(skill)
+        
       }
   },  
   {
@@ -94,10 +106,86 @@ var mentors = [
         company: "Amazon",
         position: "Senior developer",
         city: "Barcelona"
+      },
+      addSkill:function(skill){
+        this.skills.push(skill)
+        
       }
   },
 
 ];
 
 //YOUR CODE HERE
+mentors.map((mentor)=>{
+  console.log("Hi, my name is "+mentor.firstName +" "+ mentor.lastName+". I work in Barcelona and i know React.");
+})
+/* 2 */
+mentors[0].addSkill("java")
+console.log(mentors)
+/* 3 */
+function addSkill(mentors,newSkill){
+  //your code here
+
+  /* 4 */
+  mentors.forEach((mentor)=>{
+    
+    console.log(mentor.skills)
+    mentor.skills.push(newSkill)
+    console.log(mentor.skills)
+  })
+}
+console.log(addSkill(mentors,"java"))
+/* 5 */
+function removeSkill(mentors,newSkill){
+  //your code here
+  mentors.forEach((mentor)=>{
+    
+    console.log(mentor.skills)
+    mentor.skills.pop(newSkill)
+    console.log(mentor.skills)
+  })
+}
+
+/* 6 */
+
+function mentorWithMoreSkills() {
+
+  let a=mentors.filter((mentor)=>{
+     return mentor.firstName==="Antonio"
+  }).map((mentor)=>{
+    return mentor.skills
+  })
+  let b=mentors.filter((mentor)=>{
+     return mentor.firstName==="Leo"
+  }).map((mentor)=>{
+    return mentor.skills
+  })
+  let c=mentors.filter((mentor)=>{
+     return mentor.firstName==="John"
+  }).map((mentor)=>{
+    return mentor.skills
+  })
+  let d=mentors.filter((mentor)=>{
+     return mentor.firstName==="Giorgio"
+  }).map((mentor)=>{
+    return mentor.skills
+  })
+ 
+
+  let z=Math.max(a[0].length,b[0].length,c[0].length,d[0].length)
+
+ let r=mentors.filter((mentor)=>{
+     return mentor.skills.length===z
+  }).map((mentor)=>{
+    return mentor.firstName
+  })
+  
+return r
+
+}
+
+/* 7 */
+
+
+
 
