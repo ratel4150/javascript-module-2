@@ -27,6 +27,8 @@ In addition will substract 1 in the product stock of bought products
 6. If there is not enough stock, the product cannot be added to the shopping cart
 */
 
+
+
 var products = [];
 
 var product1 = {
@@ -50,15 +52,95 @@ var shoppingCart = {
   selectedProducts: []
 };
 
+let availableProducts=[]
+
 function addToShoppingCart(id){
+  let index=id-1
+ let addProductToSelectedProducts=products[index]
+ if(products[index].stock!=0){
+  shoppingCart.selectedProducts.push(addProductToSelectedProducts)
+  products[index].stock-=1
+ 
+}else{
+  console.log("ya no hay stock")
+}
+ 
+ shoppingCart.selectedProducts.push(addProductToSelectedProducts)
+ 
+ let addPriceTotalPrice=shoppingCart.selectedProducts.map((product)=>{
+   return product.price
+ }).reduce((previousValue, currentValue)=>{
+   return previousValue + currentValue
+ })
+ 
+shoppingCart.totalPrice=addPriceTotalPrice.toFixed(2);
 
 }
 
 function removeFromShoppingCart(id){
+  let index=id-1
+ let countProductDelete=shoppingCart.selectedProducts.filter((product)=>{
+    return product.id===id
+    
+  }).map((product,index)=>{
+    return index
+  })
+  
+  products[index].stock+=countProductDelete.length
+  
+  
+  
+  let removeProductsOfTheSelectedProducts=shoppingCart.selectedProducts.filter((product)=>{
+    return product.id!=id
+    
+  }).map((product)=>{
+    return product
+  })
+  //delete array selectedProducts
+  shoppingCart.selectedProducts.length=0
+  shoppingCart.selectedProducts=shoppingCart.selectedProducts.concat(removeProductsOfTheSelectedProducts)
+  let updatePrice=shoppingCart.selectedProducts.map((product)=>{
+   return product.price
+ }).reduce((previousValue, currentValue)=>{
+   return previousValue + currentValue
+ })
+ shoppingCart.totalPrice=updatePrice.toFixed(2);
+  
 
 }
 
 function shop(){
+  
+  let extractValueByID=shoppingCart.selectedProducts.map((product,index)=>{
+    return product.id;
+  })
+  
+  let valueByID=extractValueByID
+  let minValueFromArray = Math.min(...valueByID);
+  let maxValueFromArray = Math.max(...valueByID);
+  while(minValueFromArray<=maxValueFromArray){
+    
+    let index=minValueFromArray-1
+ let countProductDelete=shoppingCart.selectedProducts.filter((product)=>{
+    return product.id===minValueFromArray
+    
+  }).map((product,index)=>{
+    return index
+  })
+  
+  products[index].stock+=countProductDelete.length
+    
+    let m=shoppingCart.selectedProducts.filter((product)=>{
+      return product.id!=minValueFromArray
+    })
+    shoppingCart.selectedProducts.length=0
+    shoppingCart.selectedProducts=shoppingCart.selectedProducts.concat(m)
+    console.log(m)
+    
+    minValueFromArray+=1
+    
+  }
+  shoppingCart.totalPrice=0
 
 }
 
